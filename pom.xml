@@ -47,12 +47,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.20</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 	      <groupId>org.hibernate</groupId>
 	      <artifactId>hibernate-agroal</artifactId>
 	      <version>5.4.10.Final</version>
