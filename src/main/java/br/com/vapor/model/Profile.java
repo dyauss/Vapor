@@ -1,16 +1,20 @@
 package br.com.vapor.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "TB_PROFILE")
 @SequenceGenerator(name = "profileSequence", sequenceName = "SQ_PROFILE", allocationSize = 1)
+@Data
+@NoArgsConstructor
 public class Profile {
 	
 	@Id
@@ -29,54 +33,7 @@ public class Profile {
 	
 	@Column(name = "pic_profile")
 	private String picture;
-
-	public Profile(Long id, String name, String nickname, String aboutMe, String picture) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.nickname = nickname;
-		this.aboutMe = aboutMe;
-		this.picture = picture;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public String getAboutMe() {
-		return aboutMe;
-	}
-
-	public void setAboutMe(String aboutMe) {
-		this.aboutMe = aboutMe;
-	}
-
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
 	
+	@Column(name = "password_profile")
+	private String password;
 }

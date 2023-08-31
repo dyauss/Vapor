@@ -1,12 +1,14 @@
 package br.com.vapor.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "TB_GAME")
@@ -24,6 +26,12 @@ public class Game {
 	@Column(name = "price_game")
 	private Double price;
 	
+	@Column(name = "aboutGame_game")
+	private String aboutGame;
+	
+	@Column(name = "dateAddedGame_game")
+	private Date dateAddedGame;
+	
 	@Column(name = "genre_game")
 	private String genre;
 	
@@ -33,11 +41,13 @@ public class Game {
 	@Column(name = "pic_game")
 	private String picture;
 
-	public Game(Long id, String name, Double price, String genre, Boolean isItPurchased, String picture) {
+	public Game(Long id, String name, Double price, String aboutGame, Date dateAddedGame, String genre, Boolean isItPurchased, String picture) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
+		this.aboutGame = aboutGame;
+		this.dateAddedGame = dateAddedGame;
 		this.genre = genre;
 		this.isItPurchased = isItPurchased;
 		this.picture = picture;
@@ -66,7 +76,23 @@ public class Game {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+	public String getAboutGame() {
+		return aboutGame;
+	}
 
+	public void setAboutGame(String aboutGame) {
+		this.aboutGame = aboutGame;
+	}
+	
+	public Date getDateAddedGame() {
+		return dateAddedGame;
+	}
+
+	public void setDateAddedGame(Date dateAddedGame) {
+		this.dateAddedGame = dateAddedGame;
+	}
+	
 	public String getGenre() {
 		return genre;
 	}
