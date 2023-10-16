@@ -30,35 +30,6 @@ import jakarta.validation.Valid;
 @RequestMapping("/games")
 public class GameController {
 	@Autowired
-	private GameService gameService;
-	
-	@GetMapping
-	@ResponseStatus(code = HttpStatus.OK)
-	public List<GameDTO> getAll() {
-		return gameService.getAll();
-	}
-	
-	@PostMapping
-	@Transactional
-	public ResponseEntity<GameDTO> post(@RequestBody Game game, UriComponentsBuilder uriBuilder) {
-		return gameService.post(game, uriBuilder);
-	}
-	
-	@PutMapping("{id}")
-	@Transactional
-	public ResponseEntity<GameDTO> put(@PathVariable("id") Long id, @RequestBody @Valid Game gameNew) {
-		return gameService.put(id, gameNew);
-	}
-	
-	@PatchMapping("{id}")
-	@Transactional
-	public ResponseEntity<GameDTO> patch(@PathVariable("id") Long id, @RequestBody @Valid Game gameNew) {
-		return gameService.patch(id, gameNew);
-	}
-	
-	@DeleteMapping("{id}")
-	@Transactional
-	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-		return gameService.delete(id);
-	}
+
+	GameRepository repository;
 }
